@@ -1,128 +1,69 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
+using UnityEngine.InputSystem;
 
-enum MovementDirection {
-    NONE, UP, DOWN, LEFT, RIGHT
-}
-public class PlayerMovement : MonoBehaviour
-{
-    public float moveSpeed;
+public class PlayerMovement : MonoBehaviour {
     public Animator animator;
-    private MovementDirection movementDirection;
-    private bool isMoving;
-    private Rigidbody2D rb;
+    public float moveSpeed = 1f;
+    public float collisionOffset = 0.05f;
+    public ContactFilter2D movementFilter;
     
-    public Transform movePoint;
-    public Tilemap solidObjects;
-
+    private Rigidbody2D rb;
+    private Vector2 movementInput;
+    private List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
     private static readonly int MoveX = Animator.StringToHash("moveX");
     private static readonly int MoveY = Animator.StringToHash("moveY");
 
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
-        movePoint.SetParent(null);
-    }
-
-    private void Update() {
-        HandleInput();
+        animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate() {
-        if (movementDirection != MovementDirection.NONE) {
-            GetTargetPos();
-            if (IsWalkable()) {
-                Move();
+        if (movementInput != Vector2.zero) {
+
+            bool moveSucess = TryMove(movementInput);
+
+            if (!moveSucess) {
+                moveSucess = TryMove(new Vector2(movementInput.x, 0));
             }
-        }
-        StartCoroutine(AnimateMovement());
-    }
-
-    private bool IsWalkable() {
-        Vector3Int solidMapTile = solidObjects.WorldToCell(movePoint.position);
-        if (solidObjects.GetTile(solidMapTile) == null) {
-            return true;
-        }
-
-        return false;
-    }
-
-    private void GetTargetPos() {
-        // A new target pos should not be calculated if the player is moving.
-        if (isMoving) return;
-
-        Vector2 movement = Vector2.zero;
-
-        switch (movementDirection)
-        {
-            case MovementDirection.UP:
-                movement = Vector2.up;
-                break;
-            case MovementDirection.DOWN:
-                movement = Vector2.down;
-                break;
-            case MovementDirection.LEFT:
-                movement = Vector2.left;
-                break;
-            case MovementDirection.RIGHT:
-                movement = Vector2.right;
-                break;
-        }
-        movePoint.position = rb.position + movement;
-        AnimateFaceDirection(movement);
-    }
-    
-    private void HandleInput() {
-        // Disable input when moving
-        if (isMoving) return;
-        
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
-        
-        // If no input detected, exit
-        if (x == 0 && y == 0) return;
-
-        if (y != 0) {
-            if (y > 0) movementDirection = MovementDirection.UP;
-            else movementDirection = MovementDirection.DOWN;
+            
+            if (!moveSucess) {
+                moveSucess = TryMove(new Vector2(0, movementInput.y));
+            }
+            
+            animator.SetFloat(MoveX, movementInput.x);
+            animator.SetFloat(MoveY, movementInput.y);
+            animator.SetBool(IsMoving, moveSucess);
         }
         else {
-            if (x > 0) movementDirection = MovementDirection.RIGHT;
-            else movementDirection = MovementDirection.LEFT;
+            animator.SetBool(IsMoving, false);
         }
     }
 
-    private void Move()
-    {
-        Vector2 targetPos = movePoint.position;
+    private bool TryMove(Vector2 direction) {
+        if (direction == Vector2.zero) {
+            return false;
+        }
+        
+        bool moveResult = false;
+        // Check for collisions
+        int count = rb.Cast(
+            direction,
+            movementFilter,
+            castCollisions,
+            moveSpeed * Time.fixedDeltaTime + collisionOffset);
+        if (count == 0) {
+            rb.MovePosition(rb.position + direction * (moveSpeed * Time.fixedDeltaTime));
+            moveResult = true;
+        }
 
-        // Check if the target position is reached
-        if (Vector2.Distance(rb.position, targetPos) > Mathf.Epsilon)
-        {
-            // Move towards the target position
-            rb.position = Vector2.MoveTowards(rb.position, targetPos, moveSpeed * Time.deltaTime);
-            isMoving = true;
-        }
-        else
-        {
-            // Stop moving
-            isMoving = false;
-            movementDirection = MovementDirection.NONE;
-        }
+        return moveResult;
     }
 
-    private void AnimateFaceDirection(Vector2 movement) {
-        animator.SetFloat(MoveX, movement.x);
-        animator.SetFloat(MoveY, movement.y);
-    }
-
-    private IEnumerator AnimateMovement()
-    {
-        Vector2 originalPos = rb.position;
-        yield return new WaitForSeconds(0.1f);
-
-        // Check if the player has moved during the delay
-        animator.SetBool(IsMoving, rb.position != originalPos);
+    void OnMove(InputValue movementValue) {
+        movementInput = movementValue.Get<Vector2>();
     }
 }
