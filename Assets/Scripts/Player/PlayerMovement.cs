@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour {
+    [HideInInspector]
+    public bool movementEnabled = true;
+    
     public Animator animator;
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
@@ -22,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (movementInput != Vector2.zero) {
+        if (movementInput != Vector2.zero && movementEnabled) {
 
             bool moveSucess = TryMove(movementInput);
 

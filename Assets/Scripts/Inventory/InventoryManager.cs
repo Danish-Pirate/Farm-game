@@ -16,7 +16,8 @@ public class InventoryManager : MonoBehaviour {
     public TextMeshProUGUI itemPickupText;
 
     private int selectedSlot = -1;
-    private bool showInventory;
+    [HideInInspector]
+    public bool showInventory;
 
     private void Awake() {
         instance = this;
