@@ -103,10 +103,12 @@ GameObject:
   - component: {fileID: 277213029987745803}
   - component: {fileID: 7284641284565931618}
   - component: {fileID: 6300827695294532698}
-  - component: {fileID: 8948860149082563718}
+  - component: {fileID: 3346403937991400598}
+  - component: {fileID: -6013822834945546655}
   - component: {fileID: 2725276485338997754}
   - component: {fileID: 2633293589352900420}
   - component: {fileID: 7142872392106509325}
+  - component: {fileID: 5824888830754126130}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -170,9 +172,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 414886319
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 61007347, guid: 48eb225e5dd6bf52ba22eabc1428eef4, type: 3}
+  m_Sprite: {fileID: -143563993, guid: 9028733f30836f3b196d6d7ee14d61ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -195,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26a6f77bf6584dc3f91edd3bed1ffe08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8948860149082563718}
+  movementEnabled: 1
   moveSpeed: 5
   collisionOffset: 0.02
   movementFilter:
@@ -212,27 +214,35 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
---- !u!95 &8948860149082563718
-Animator:
-  serializedVersion: 5
+--- !u!114 &3346403937991400598
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5944919928758964623}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b0f41b7ff005ed1794ef9bc28a4d6da, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0091151cb4bb097bdc3470c56cbb75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 3606888059851265848}
+  _playerMovement: {fileID: 0}
+  _inventoryManager: {fileID: 0}
+  _playerInteraction: {fileID: 0}
+--- !u!114 &-6013822834945546655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944919928758964623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 381c91a55c0a45aeab47c73b131cde17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionRange: 3
 --- !u!50 &2725276485338997754
 Rigidbody2D:
   serializedVersion: 4
@@ -259,7 +269,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2633293589352900420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,10 +332,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008610189, y: 0.29851717}
+  m_Offset: {x: 0.008954823, y: -0.52146614}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.08}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -333,8 +343,29 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.51814854, y: 0.1976718}
+  m_Size: {x: 0.47047186, y: 0.22788495}
   m_EdgeRadius: 0
+--- !u!95 &5824888830754126130
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5944919928758964623}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a093032d6c86eef184dbdcfce7952ba, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7510102318522177004
 GameObject:
   m_ObjectHideFlags: 0

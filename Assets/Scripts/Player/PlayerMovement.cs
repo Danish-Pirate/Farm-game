@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     [HideInInspector]
     public bool movementEnabled = true;
     
-    public Animator animator;
+    private Animator animator;
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour {
         if (movementInput != Vector2.zero && movementEnabled) {
 
             bool moveSucess = TryMove(movementInput);
-
             if (!moveSucess) {
                 moveSucess = TryMove(new Vector2(movementInput.x, 0));
             }

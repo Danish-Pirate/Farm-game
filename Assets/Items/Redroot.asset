@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Redroot
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
-  type: 0
-  actionType: 0
-  range: {x: 5, y: 4}
+  type: 3
   stackable: 1
-  image: {fileID: -2084370996, guid: d65763e966c3838da83225c8dfb8c6b2, type: 3}
+  image: {fileID: -1372821356, guid: d65763e966c3838da83225c8dfb8c6b2, type: 3}
