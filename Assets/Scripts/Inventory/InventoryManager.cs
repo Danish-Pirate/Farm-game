@@ -6,23 +6,24 @@ using TMPro;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour {
-    public static InventoryManager instance;
-    
-    public GameObject inventoryGroup;
-    public InventorySlot[] InventorySlots;
-    public GameObject inventoryItemPrefab;
-    public int maxItemStackSize = 4;
-    public Item[] startingItems;
-    public TextMeshProUGUI itemPickupText;
+
+    [SerializeField]
+    private GameObject inventoryGroup;
+    [SerializeField]
+    private InventorySlot[] InventorySlots;
+    [SerializeField]
+    private GameObject inventoryItemPrefab;
+    [SerializeField]
+    private int maxItemStackSize = 32;
+    [SerializeField]
+    private Item[] startingItems;
+    [SerializeField]
+    private TextMeshProUGUI itemPickupText;
 
     private int selectedSlot = -1;
     [HideInInspector]
     public bool showInventory;
 
-    private void Awake() {
-        instance = this;
-    }
-    
     private void Start() {
         ChangeSelectedSlot(0);
         foreach (var startingItem in startingItems) {
@@ -88,6 +89,19 @@ public class InventoryManager : MonoBehaviour {
         
         return false;
     }
+
+    public bool HasEmptySlot() {
+        for (int i = 0; i < InventorySlots.Length; i++) {
+            InventorySlot slot = InventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot == null) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
     /// <summary>
     ///  <para>Spawns a new item in the player inventory.</para>
     /// </summary>
