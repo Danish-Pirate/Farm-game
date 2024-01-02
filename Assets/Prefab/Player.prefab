@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 277213029987745803}
   - component: {fileID: 7284641284565931618}
   - component: {fileID: 6300827695294532698}
-  - component: {fileID: 3346403937991400598}
   - component: {fileID: -6013822834945546655}
   - component: {fileID: 2725276485338997754}
   - component: {fileID: 2633293589352900420}
@@ -214,22 +213,6 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
---- !u!114 &3346403937991400598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5944919928758964623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd0091151cb4bb097bdc3470c56cbb75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 3606888059851265848}
-  _playerMovement: {fileID: 0}
-  _inventoryManager: {fileID: 0}
-  _playerInteraction: {fileID: 0}
 --- !u!114 &-6013822834945546655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionRange: 3
+  mainCamera: {fileID: 3606888059851265848}
 --- !u!50 &2725276485338997754
 Rigidbody2D:
   serializedVersion: 4

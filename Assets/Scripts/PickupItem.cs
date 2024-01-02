@@ -1,23 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inventory;
 using UnityEngine;
 
-public class PickupItem : MonoBehaviour { 
-    Transform playerTransform;
+public class PickupItem : MonoBehaviour {
+    private Transform playerTransform;
+    private InventoryManager inventoryManager;
     [SerializeField] private Item item;
     [SerializeField] private float speed = 5;
     [SerializeField] private float pickUpDistance = 1.5f;
     [SerializeField] private float magnetDistance = 3.0f;
 
-    private void Start() {
-        playerTransform = PlayerManager.Instance.transform;
+    private void Awake() {
+        playerTransform = GameObject.Find("Player").transform;
+        inventoryManager = InventoryManager.Instance;
     }
 
     private void Update() {
+
         if (!IsInMagnetDistance()) return;
 
-        if (!PlayerManager.Instance._inventoryManager.HasEmptySlot()) return;
+        if (!inventoryManager.HasEmptySlot()) return;
         
         MoveTowardsPlayer();
 
@@ -27,7 +31,7 @@ public class PickupItem : MonoBehaviour {
     }
 
     private void PickUp() {
-        bool hasBeenPickedUp = PlayerManager.Instance._inventoryManager.AddItem(item);
+        bool hasBeenPickedUp = inventoryManager.AddItem(item);
         if (hasBeenPickedUp) Destroy(gameObject);
     }
 

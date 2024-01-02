@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Inventory;
 using UnityEngine;
 
 public class TestScript : MonoBehaviour {
-    public InventoryManager InventoryManager;
+    private InventoryManager inventoryManager;
     public Item[] itemsToPickup;
+
+    private void Awake() {
+        inventoryManager = InventoryManager.Instance;
+    }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.N)) {
@@ -25,7 +30,7 @@ public class TestScript : MonoBehaviour {
     }
 
     public void UseSelectedItem() {
-        Item receivedItem = InventoryManager.GetSelectedItem(true);
+        Item receivedItem = inventoryManager.GetSelectedItem(true);
         if (receivedItem != null) {
             print($"Used {receivedItem}");
         }
@@ -35,7 +40,7 @@ public class TestScript : MonoBehaviour {
     }
 
     public void GetSelectedItem() {
-        Item receivedItem = InventoryManager.GetSelectedItem(false);
+        Item receivedItem = inventoryManager.GetSelectedItem(false);
         if (receivedItem != null) {
             print($"Received {receivedItem}");
         }
@@ -45,7 +50,7 @@ public class TestScript : MonoBehaviour {
     }
 
     public void PickupItem(int id) {
-        bool result = InventoryManager.AddItem(itemsToPickup[id]);
+        bool result = inventoryManager.AddItem(itemsToPickup[id]);
         if (result) {
             print("Item added");
         }
