@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc2df5ba0c3aa08fb3d0970490ae6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 5944919928758964623, guid: 9d2044bd65d26d4e79bc4aaa2eb53c38, type: 3}
+  inventoryManager: {fileID: 0}
   item: {fileID: 11400000, guid: 09042ea042a0b2af4b2b76844bbc5ed1, type: 2}
   speed: 5
   pickUpDistance: 0.5
