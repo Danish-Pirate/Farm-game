@@ -45,7 +45,7 @@ namespace Inventory {
         /// </summary>
         /// <param name="item">The item that was picked up.</param>
         void DisplayPickupText(Item item) {
-            itemPickupText.text = $"{item.name}";
+            itemPickupText.text = $"Got {item.name}";
             Animator animator = itemPickupText.GetComponent<Animator>();
             animator.SetTrigger("Fade");
         }
