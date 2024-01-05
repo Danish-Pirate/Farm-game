@@ -155,8 +155,8 @@ TextureImporter:
       name: InventoryItems_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
+        x: 32
+        y: 112
         width: 16
         height: 16
       alignment: 0
@@ -176,7 +176,7 @@ TextureImporter:
       name: InventoryItems_3
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 80
         width: 16
         height: 16
@@ -189,6 +189,48 @@ TextureImporter:
       bones: []
       spriteID: 259fafdb8879e1ef3ae3880313698470
       internalID: -406864012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryItems_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9341985065f289250b8b817f6089a069
+      internalID: 478613757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryItems_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7142a4e348ff8866b8067788b9fba373
+      internalID: 1834192595
       vertices: []
       indices: 
       edges: []
@@ -208,6 +250,8 @@ TextureImporter:
       InventoryItems_1: -2084370996
       InventoryItems_2: -1372821356
       InventoryItems_3: -406864012
+      InventoryItems_4: 478613757
+      InventoryItems_5: 1834192595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15923,8 +15923,9 @@ MonoBehaviour:
   maxItemStackSize: 32
   startingItems:
   - {fileID: 11400000, guid: 1a4c5a72036088ad8a5f47a736fc0ebe, type: 2}
-  - {fileID: 11400000, guid: d96cd114f829b2e419a6b0fa5ee400de, type: 2}
   - {fileID: 11400000, guid: 1f4c256b44f9b97faa2bee4ac9d7b492, type: 2}
+  - {fileID: 11400000, guid: 6ed0e0bb74a6d487b887b5c24e74c772, type: 2}
+  - {fileID: 11400000, guid: d96cd114f829b2e419a6b0fa5ee400de, type: 2}
   itemPickupText: {fileID: 600427659}
   showInventory: 0
 --- !u!114 &1922954443

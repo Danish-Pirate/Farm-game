@@ -38,6 +38,9 @@ namespace Inventory {
         
             InventorySlots[newValue].Select();
             selectedSlot = newValue;
+            
+            // Display text to show selected item
+            DisplayPickupText(GetSelectedItem(false));
         }
     
         /// <summary>
@@ -45,7 +48,9 @@ namespace Inventory {
         /// </summary>
         /// <param name="item">The item that was picked up.</param>
         void DisplayPickupText(Item item) {
-            itemPickupText.text = $"Got {item.name}";
+            if (!item) return;
+            
+            itemPickupText.text = $"{item.name}";
             Animator animator = itemPickupText.GetComponent<Animator>();
             animator.SetTrigger("Fade");
         }

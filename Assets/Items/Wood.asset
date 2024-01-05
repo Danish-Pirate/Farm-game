@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 905ec492900d4be4bd1a3472b338025b, type: 3}
-  m_Name: Stone
+  m_Name: Wood
   m_EditorClassIdentifier: 
   tile: {fileID: 0}
   type: 3
   stackable: 1
-  image: {fileID: 478613757, guid: d65763e966c3838da83225c8dfb8c6b2, type: 3}
+  image: {fileID: 1834192595, guid: d65763e966c3838da83225c8dfb8c6b2, type: 3}

@@ -201,7 +201,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 414886319
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -290856886, guid: c1969d1569324d9c3970ae8d23d4544c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -285,7 +285,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 414886319
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -1837696843, guid: c1969d1569324d9c3970ae8d23d4544c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 414886319
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 1457664204, guid: c1969d1569324d9c3970ae8d23d4544c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -583,7 +583,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 414886319
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 529768020, guid: c1969d1569324d9c3970ae8d23d4544c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -607,6 +607,7 @@ GameObject:
   - component: {fileID: 3622216524777553515}
   - component: {fileID: 85724258210416239}
   - component: {fileID: 6045410172448131391}
+  - component: {fileID: -5152969195726697866}
   m_Layer: 0
   m_Name: Tree_1
   m_TagString: Untagged
@@ -729,3 +730,17 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 9028262126093145094}
+--- !u!114 &-5152969195726697866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028262126093145094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e91d6f77af35e6183f7f538c9940d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2687985213510076321, guid: 725dafc2f3cbb4fe3bf8f1439fd24531, type: 3}
+  requiredToolType: 1

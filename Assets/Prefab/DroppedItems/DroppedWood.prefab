@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6410617927988258576}
   - component: {fileID: 7869670352858828012}
   m_Layer: 0
-  m_Name: DroppedStone
+  m_Name: DroppedWood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 628926067
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 478613757, guid: d65763e966c3838da83225c8dfb8c6b2, type: 3}
+  m_Sprite: {fileID: 1834192595, guid: d65763e966c3838da83225c8dfb8c6b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc2df5ba0c3aa08fb3d0970490ae6e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 09042ea042a0b2af4b2b76844bbc5ed1, type: 2}
+  item: {fileID: 11400000, guid: e791184296779d237b1fd9e8fd870bd5, type: 2}
   speed: 5
   pickUpDistance: 0.5
   magnetDistance: 3

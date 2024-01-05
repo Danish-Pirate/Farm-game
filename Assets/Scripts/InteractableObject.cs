@@ -1,7 +1,7 @@
 using DefaultNamespace;
 using UnityEngine;
 
-public class InteractableRock : Interactable {
+public class InteractableObject : Interactable {
     [SerializeField] private GameObject prefab;
     [SerializeField] private Item.ItemType requiredToolType;
     public override void Interact(Item item) {

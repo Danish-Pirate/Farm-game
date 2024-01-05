@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Inventory;
 using UnityEngine;
 
@@ -20,7 +17,7 @@ public class PickupItem : MonoBehaviour {
     private void Update() {
 
         if (!IsInMagnetDistance()) return;
-
+        
         if (!inventoryManager.HasEmptySlot()) return;
         
         MoveTowardsPlayer();
