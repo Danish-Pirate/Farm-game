@@ -1,11 +1,18 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class InteractableObject : Interactable {
-    [SerializeField] private GameObject prefab;
-    [SerializeField] private Item.ItemType requiredToolType;
+    public InteractableObjectData interactableObjectData;
+    
+    public int maxDropAmount = 5;
+    public int minDropAmount = 2;
+    private const float MaxDropSpread = 0.7f;  // max dist item can spawn from object when destroyed
+
     public override void Interact(Item item) {
-        if (item.type == requiredToolType) {
+        if (item.type == interactableObjectData.requiredToolType) {
             DestroyObject();
         }
     }
@@ -16,6 +23,12 @@ public class InteractableObject : Interactable {
     }
 
     void DropLoot() {
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        int dropAmount = Random.Range(minDropAmount, maxDropAmount);
+
+        for (int i = 0; i < dropAmount; i++) {
+            Vector2 randomCircle = Random.insideUnitCircle * MaxDropSpread;
+            Vector3 spawnPos = new Vector3(transform.position.x + randomCircle.x, transform.position.y + randomCircle.y);
+            Instantiate(interactableObjectData.prefab, spawnPos, Quaternion.identity);
+        }
     }
 }

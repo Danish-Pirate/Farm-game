@@ -5,9 +5,10 @@ public class PickupItem : MonoBehaviour {
     private Transform playerTransform;
     private InventoryManager inventoryManager;
     [SerializeField] private Item item;
-    [SerializeField] private float speed = 5;
-    [SerializeField] private float pickUpDistance = 1.5f;
-    [SerializeField] private float magnetDistance = 3.0f;
+    private const float Speed = 5;
+    private const float PickUpDistance = 0.5f;
+    private const float MagnetDistance = 1.5f;
+    private float despawnTimerInSeconds = 120.0f;
 
     private void Awake() {
         playerTransform = GameObject.Find("Player").transform;
@@ -15,7 +16,11 @@ public class PickupItem : MonoBehaviour {
     }
 
     private void Update() {
-
+        despawnTimerInSeconds -= Time.deltaTime;
+        if (despawnTimerInSeconds < 0) {
+            Destroy(gameObject);
+        }
+        
         if (!IsInMagnetDistance()) return;
         
         if (!inventoryManager.HasEmptySlot()) return;
@@ -29,24 +34,26 @@ public class PickupItem : MonoBehaviour {
 
     private void PickUp() {
         bool hasBeenPickedUp = inventoryManager.AddItem(item);
-        if (hasBeenPickedUp) Destroy(gameObject);
+        if (hasBeenPickedUp) {
+            Destroy(gameObject);
+        }
     }
 
     private bool IsInPickUpDistance() {
         float distance = Vector3.Distance(playerTransform.position, transform.position);
-        return distance <= pickUpDistance;
+        return distance <= PickUpDistance;
     }
 
     private void MoveTowardsPlayer() {
         transform.position = Vector3.MoveTowards(
             transform.position,
             playerTransform.position,
-            speed * Time.deltaTime
+            Speed * Time.deltaTime
         );
     }
 
     private bool IsInMagnetDistance() {
         float distance = Vector3.Distance(playerTransform.position, transform.position);
-        return distance <= magnetDistance;
+        return distance <= MagnetDistance;
     }
 }

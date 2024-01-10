@@ -11,8 +11,7 @@ namespace Utility {
             else if (Instance != this) {
                 Destroy(this);
             }
-        
-            DontDestroyOnLoad(this);
+            
         }
     }
 }
