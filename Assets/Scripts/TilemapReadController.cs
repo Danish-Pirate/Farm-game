@@ -18,12 +18,17 @@ public class TilemapReadController : MonoBehaviour {
         }
     }
 
-    public (TileBase, Vector3Int) GetTile(Vector2 worldPos) {
-        Vector3Int gridPosition = tilemap.WorldToCell(worldPos);
+    public TileBase GetTile(Vector2 worldPos) {
+        var gridPosition = GetGridPosition(worldPos);
 
         TileBase tile = tilemap.GetTile(gridPosition);
 
-        return (tile, gridPosition);
+        return tile;
+    }
+
+    public Vector3Int GetGridPosition(Vector2 worldPos) {
+        Vector3Int gridPosition = tilemap.WorldToCell(worldPos);
+        return gridPosition;
     }
 
     public TileData GetTileData(TileBase tileBase) {
