@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +20,8 @@ namespace Player {
         private static readonly int IsMoving = Animator.StringToHash("isMoving");
         private static readonly int MoveX = Animator.StringToHash("moveX");
         private static readonly int MoveY = Animator.StringToHash("moveY");
+
+        public static event EventHandler OnPlayerMove;
 
         private void Start() {
             rb = GetComponent<Rigidbody2D>();
@@ -60,6 +63,7 @@ namespace Player {
                 moveSpeed * Time.fixedDeltaTime + collisionOffset);
             if (count == 0) {
                 rb.MovePosition(rb.position + direction * (moveSpeed * Time.fixedDeltaTime));
+                OnPlayerMove?.Invoke(this, EventArgs.Empty);
                 moveResult = true;
             }
 
