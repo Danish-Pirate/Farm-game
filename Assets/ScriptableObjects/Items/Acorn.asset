@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 143d4c96db9e6cad2bce350ff2820d92, type: 3}
-  m_Name: Tree
+  m_Script: {fileID: 11500000, guid: 905ec492900d4be4bd1a3472b338025b, type: 3}
+  m_Name: Acorn
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2687985213510076321, guid: 725dafc2f3cbb4fe3bf8f1439fd24531, type: 3}
-  requiredToolType: 1
+  type: 3
+  stackable: 1
+  image: {fileID: -15447573, guid: d65763e966c3838da83225c8dfb8c6b2, type: 3}

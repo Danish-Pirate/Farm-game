@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8583990547981955306}
   - component: {fileID: 3850787804170661034}
   - component: {fileID: 8071636682561116422}
-  - component: {fileID: 1087678987010506195}
+  - component: {fileID: 7811223998992711905}
   m_Layer: 0
   m_Name: Rock_5
   m_TagString: Untagged
@@ -137,7 +137,7 @@ PolygonCollider2D:
       - {x: 0.4030409, y: -0.020639777}
       - {x: 0.060523987, y: 0.14814532}
   m_UseDelaunayMesh: 0
---- !u!114 &1087678987010506195
+--- !u!114 &7811223998992711905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,9 +146,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4061498294740913076}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e91d6f77af35e6183f7f538c9940d2, type: 3}
+  m_Script: {fileID: 11500000, guid: dd721f1ad32745b59bc8782e1f7d12cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableObjectData: {fileID: 11400000, guid: 547d1ca17fde3af4196710ac4561a217, type: 2}
-  maxDropAmount: 5
-  minDropAmount: 2
+  requiredTool: 0
+  lootTableData: {fileID: 11400000, guid: 6eabfedcdb4c40aa19caf8147cffda56, type: 2}

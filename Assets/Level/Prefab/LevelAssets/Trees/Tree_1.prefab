@@ -624,12 +624,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9028262126093145094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e91d6f77af35e6183f7f538c9940d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f9f3bd92e354b33893a1021d48bb7dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableObjectData: {fileID: 11400000, guid: cf5f7b30a2c20b3c8a4945648e2c4152, type: 2}
-  maxDropAmount: 4
-  minDropAmount: 1
+  requiredTool: 1
+  lootTableData: {fileID: 11400000, guid: 458e1da07b8af318d94078091ccfa20e, type: 2}
 --- !u!61 &574262993088291864
 BoxCollider2D:
   m_ObjectHideFlags: 0

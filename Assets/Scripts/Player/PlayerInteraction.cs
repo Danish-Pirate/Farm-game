@@ -1,5 +1,4 @@
 using System;
-using DefaultNamespace;
 using Inventory;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -42,11 +41,11 @@ namespace Player {
 
         private static void InteractSprite(Item item, RaycastHit2D hit) {
             GameObject hitObject = hit.collider.gameObject;
-            Interactable interactScript = hitObject.GetComponent<Interactable>();
+            IInteractable interactScript = hitObject.GetComponent<IInteractable>();
 
             if (interactScript == null) return;
 
-            interactScript.Interact(item);
+            interactScript.Execute(item);
         }
 
         public void TileInteract(Vector3Int worldPos, TileData tileData, Item item) {

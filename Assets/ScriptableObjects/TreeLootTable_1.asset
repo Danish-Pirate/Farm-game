@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d73227fbb0af4f19b2f8fbe3d6985f63, type: 3}
+  m_Name: TreeLootTable_1
+  m_EditorClassIdentifier: 
+  droppableItems:
+  - itemPrefab: {fileID: 2687985213510076321, guid: 725dafc2f3cbb4fe3bf8f1439fd24531, type: 3}
+    minAmount: 1
+    maxAmount: 3
+    dropChance: 1
+  - itemPrefab: {fileID: 2687985213510076321, guid: 22f17725f40ba58d5aba8ccd5711a800, type: 3}
+    minAmount: 1
+    maxAmount: 2
+    dropChance: 0.7

@@ -80863,6 +80863,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6300827695294532698, guid: 9d2044bd65d26d4e79bc4aaa2eb53c38, type: 3}
+      propertyPath: movementFilter.layerMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
