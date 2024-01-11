@@ -1,8 +1,5 @@
-using System;
 using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
 
 public class InteractableObject : Interactable {
     public InteractableObjectData interactableObjectData;
@@ -12,7 +9,7 @@ public class InteractableObject : Interactable {
     private const float MaxDropSpread = 0.7f;  // max dist item can spawn from object when destroyed
 
     public override void Interact(Item item) {
-        if (item.type == interactableObjectData.requiredToolType) {
+        if (item != null && item.type  == interactableObjectData.requiredToolType) {
             DestroyObject();
         }
     }

@@ -9,11 +9,11 @@ namespace Player {
         [SerializeField] private float interactionRange;
         [SerializeField] private Camera mainCamera;
         private InventoryManager inventoryManager;
+        [SerializeField] private TilemapReadController tilemapReadController;
 
         public void Start() {
             inventoryManager = InventoryManager.Instance;
-            
-            
+
             InputManager.LeftClick += (object sender, EventArgs args) => {
                 Item item = inventoryManager.GetSelectedItem(false);
                 
@@ -22,14 +22,23 @@ namespace Player {
         }
 
         public void Interact(Item item) {
-            Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.down);
+            Vector3 worldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+            (TileBase tile,Vector3Int gridPosition) = tilemapReadController.GetTile(worldPos);
+
+            TileData tileData = tilemapReadController.GetTileData(tile);
+
+            if (tileData != null && tileData.isInteractable) {
+                TileInteract(gridPosition, tile, tileData, item);
+            }
+
             
+            RaycastHit2D hit = Physics2D.Raycast(worldPos, Vector2.down);
             if (!hit) return;
-            
+
             // if the object is not in range, return
             if (!IsObjectInRange(hit.collider.transform.position)) return;
-            
+
             GameObject hitObject = hit.collider.gameObject;
             Interactable interactScript = hitObject.GetComponent<Interactable>();
 
@@ -37,7 +46,13 @@ namespace Player {
             
             interactScript.Interact(item);
         }
-        
+
+        public void TileInteract(Vector3Int worldPos, TileBase tile, TileData tileData, Item item) {
+            if (tileData.requiredTool == item.type) {
+                tilemapReadController.tilemap.SetTile(worldPos, tileData.TileToReplaceWith);
+            }
+        }
+
         // checks if object is within interaction range
         bool IsObjectInRange(Vector3 objectPos) {
             Vector3 playerPos = transform.position;
