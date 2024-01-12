@@ -21,12 +21,17 @@ namespace Utility {
             }
         }
 
-        public void PlaySound(Sound sound, int audioChannel) {
+        public void PlaySound(Sound sound, int audioChannel, bool waitForFinish = true) {
             if (!(audioChannel >= 0 && audioChannel < audioSources.Length)) return;
             AudioSource audioSource = audioSources[audioChannel];
+            AudioClip audioClip = audioDictionary[sound];
 
-            if (!audioSource.isPlaying) {
-                AudioClip audioClip = audioDictionary[sound];
+            if (waitForFinish) {
+                if (!audioSource.isPlaying) {
+                    audioSource.PlayOneShot(audioClip);
+                }
+            }
+            else {
                 audioSource.PlayOneShot(audioClip);
             }
         }

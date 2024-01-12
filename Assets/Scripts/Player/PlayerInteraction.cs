@@ -1,7 +1,9 @@
 using System;
+using DefaultNamespace;
 using Inventory;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Utility;
 
 namespace Player {
     public class PlayerInteraction : MonoBehaviour {
@@ -53,6 +55,7 @@ namespace Player {
             
             if (tileData.requiredTool == item.type) {
                 tilemapReadController.tilemap.SetTile(worldPos, tileData.TileToReplaceWith);
+                AudioManager.Instance.PlaySound(Sound.PLOW, 1, false);
             }
         }
 
