@@ -18733,6 +18733,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f4c256b44f9b97faa2bee4ac9d7b492, type: 2}
   - {fileID: 11400000, guid: 6ed0e0bb74a6d487b887b5c24e74c772, type: 2}
   - {fileID: 11400000, guid: d96cd114f829b2e419a6b0fa5ee400de, type: 2}
+  - {fileID: 11400000, guid: db4f1979bf45eb92f8ffc94917d7da9b, type: 2}
+  - {fileID: 11400000, guid: db4f1979bf45eb92f8ffc94917d7da9b, type: 2}
+  - {fileID: 11400000, guid: db4f1979bf45eb92f8ffc94917d7da9b, type: 2}
   itemPickupText: {fileID: 600427659}
   showInventory: 0
 --- !u!1001 &1068251004
@@ -24464,6 +24467,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d366fe64d754a92999ef1b4199c3d2cf, type: 3}
+--- !u!1 &1793083387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793083388}
+  - component: {fileID: 1793083389}
+  m_Layer: 0
+  m_Name: TileMapManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793083388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793083387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1922954440}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1793083389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793083387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f063ab0865ad959fba24804dbb4d7014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 2032041852}
+  tileData: {fileID: 11400000, guid: 60e6f06747f7451d0bfe38ea32dd9820, type: 2}
+  plantSeed: {fileID: 11400000, guid: db4f1979bf45eb92f8ffc94917d7da9b, type: 2}
+  plant: {fileID: 5247304898454709165, guid: c90ffd03468cdcff7979f1da9fdb5448, type: 3}
 --- !u!4 &1800914522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8583990547981955306, guid: a380b1d6d78db08d4bb93ffeccc10f1b, type: 3}
@@ -25615,7 +25666,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1922954440}
   - component: {fileID: 1922954443}
-  - component: {fileID: 1922954444}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -25641,6 +25691,7 @@ Transform:
   - {fileID: 292880627}
   - {fileID: 1066287301}
   - {fileID: 397025303}
+  - {fileID: 1793083388}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1922954443
@@ -25655,21 +25706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b55bb234814f33a97169b08b972543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1922954444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922954439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e07a235a9bba0d114a048d012e27c7e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 2032041852}
-  tileDatas:
-  - {fileID: 11400000, guid: 404e3db9ede417ec78703701132f5c6f, type: 2}
 --- !u!1001 &1929195767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81160,9 +81196,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6013822834945546655, guid: 9d2044bd65d26d4e79bc4aaa2eb53c38, type: 3}
+      propertyPath: tileMapManager
+      value: 
+      objectReference: {fileID: 1793083389}
+    - target: {fileID: -6013822834945546655, guid: 9d2044bd65d26d4e79bc4aaa2eb53c38, type: 3}
       propertyPath: tilemapReadController
       value: 
-      objectReference: {fileID: 1922954444}
+      objectReference: {fileID: 0}
     - target: {fileID: 277213029987745803, guid: 9d2044bd65d26d4e79bc4aaa2eb53c38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5

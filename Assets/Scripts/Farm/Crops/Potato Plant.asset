@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8b10ac8c1d8d6b8857d1b13e62f078, type: 3}
+  m_Name: Potato Plant
+  m_EditorClassIdentifier: 
+  CropName: Potato Plant
+  CropType: 0
+  GrowCyclesToGrow: 3
+  SpriteGrowStages:
+  - {fileID: 518579006, guid: 18f3456750ef4d743b01e50791a86dc4, type: 3}
+  - {fileID: -1067701291, guid: 18f3456750ef4d743b01e50791a86dc4, type: 3}
+  - {fileID: -2103784612, guid: 18f3456750ef4d743b01e50791a86dc4, type: 3}
+  CropLootTable: {fileID: 11400000, guid: 162460aa5e95ef3e5977324c75d75c80, type: 2}

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Video;
 
 public class InputManager : MonoBehaviour {
     public static event EventHandler LeftClick;

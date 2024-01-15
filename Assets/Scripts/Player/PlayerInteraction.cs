@@ -1,16 +1,15 @@
 using System;
-using DefaultNamespace;
 using Inventory;
+using Tiledata;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using Utility;
 
 namespace Player {
     public class PlayerInteraction : MonoBehaviour {
         [SerializeField] private float interactionRange;
         [SerializeField] private Camera mainCamera;
+        [SerializeField] private TileMapManager tileMapManager;
         private InventoryManager inventoryManager;
-        [SerializeField] private TilemapReadController tilemapReadController;
 
         public void Start() {
             inventoryManager = InventoryManager.Instance;
@@ -36,8 +35,8 @@ namespace Player {
             }
             // else tile has been clicked on
             else {
-                TileBase tile = tilemapReadController.GetTile(worldPos);
-                TileInteract(tilemapReadController.GetGridPosition(worldPos), tilemapReadController.GetTileData(tile), item);
+                (TileBase tile, Vector3Int gridPosOfCell) = tileMapManager.GetTileAndGridPos(worldPos);
+                tileMapManager.TryInteract(gridPosOfCell, tile, item);
             }
         }
 
@@ -48,15 +47,6 @@ namespace Player {
             if (interactScript == null) return;
 
             interactScript.Execute(item);
-        }
-
-        public void TileInteract(Vector3Int worldPos, TileData tileData, Item item) {
-            if (tileData == null || item == null) return;
-            
-            if (tileData.requiredTool == item.type) {
-                tilemapReadController.tilemap.SetTile(worldPos, tileData.TileToReplaceWith);
-                AudioManager.Instance.PlaySound(Sound.PLOW, 1, false);
-            }
         }
 
         // checks if pos is within interaction range
